@@ -1,5 +1,5 @@
 {
-  "homepage": "https://iheb1919.github.io/TestTask-ChuckJokess",
+ 
   
   "name": "testtask-chuckjokes",
   "private":true,
@@ -22,7 +22,7 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/iheb1919/TestTask-ChuckJokes/issues"
-  },
+  }, "homepage": "https://iheb1919.github.io/TestTask-ChuckJokess",
  
   "dependencies": {
     "axios": "^0.27.2",
