@@ -1,0 +1,178 @@
+@import 'colors';
+@import 'mediaqueries'; 
+$im: url(../assets/assets_Homework_Front-End_01/bitmap@3x.png);
+$searchWhite: url(../assets/assets_Homework_Front-End_01/search-copy.png);
+$searchBlack: url(../assets/assets_Homework_Front-End_02/search-copy.png);
+
+
+
+.headerMain{
+    
+    background-image: $im;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 4rem;
+    width: 100vw;
+    height: 50vh;
+
+    
+    @include tablet{
+        padding-top: 8rem;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+.headerCenter{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    p{
+        font-size: 48px;
+        color: $tan;
+        font-family: Montserrat-Regular;
+        line-height: 1.5em;
+        @include mobile{
+            font-size: 38px;
+        }
+        
+    }
+    h6{
+        color: $white;
+        font-size: 24px;
+        font-family: Montserrat-Light;
+        line-height: 1.1em;
+        @include mobile{
+            font-size: 18px;
+        }
+    }
+    
+}
+
+.searchDivs{
+    position: relative;
+    margin-top: 20px;
+    width: 25rem;
+    display: flex;
+    justify-content: center;
+    @include tablet{
+        width: 90%;
+    }
+    .searchDiv{
+        /* margin: 40px 0 40px 0; */
+        color: $grey;
+        display: flex;
+        padding: 2px;
+        border: 1px solid $white;
+        border-radius: 5px;
+        width: 100%;
+        &:focus-within{
+            background-color: $white;
+            color:#000;
+            .text-input{
+                background: transparent $searchBlack no-repeat right
+            }
+        };
+        @include mobile{
+            width: 90%;
+            
+        }
+        .text-input{
+            background: transparent;
+            margin: 0;
+            padding: 7px 8px;
+            font-size: 14px;
+            color: inherit;
+            border-radius: inherit;
+            outline: none;
+            width: 100%;
+            height: 40px;
+            border-color: transparent ;
+            font-size: 1.1em;
+            background: transparent $searchWhite no-repeat right ;
+           &:focus{
+            background: none;
+           }
+           &::placeholder{
+            color: #fff;
+           }
+        }
+        button{
+            text-indent: -999px;
+            overflow: hidden;
+            width: 40px;
+            padding: 0;
+            margin: 0;
+            border: 1px solid transparent;
+            border-radius: inherit;
+            
+            cursor: pointer;
+        }
+    }
+    .search_result{
+
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        margin-top: 5px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: $white;
+        max-height: 200px;
+        overflow-y: auto;
+        @include mobile{
+            width: 90%;
+            
+        }
+    
+        
+        
+    .div2 {
+        width: 100%;
+        
+        display: flex;
+       
+        &:hover{
+            background-color: lighten($silver,20%) ;
+        }
+
+        width: 90%;
+        margin-bottom: 2px;
+        padding: 10px 1px 10px 0 ;
+        border-bottom: 1px solid $black;
+        display: flex; 
+        img{
+            width: auto;
+            margin-right: 10px;
+        }
+        p{  
+            font-size: 15px;
+            font-family: 'Montserrat-Medium' ;
+            color: $silver;
+        }
+    }
+    .div:last-child{
+    
+        .div2 {
+            border-bottom:none;
+        }
+    };
+    
+
+    }
+}
+.search_result{
+    
+      
+
+}
+
+
+
+
+

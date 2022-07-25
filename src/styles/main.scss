@@ -1,0 +1,126 @@
+@import 'colors';
+@import 'mixins';
+@import 'mediaqueries';
+$colors : ($tan,
+$silver,
+$eirdGreeen,
+$pastelOrange,
+$headergold,
+$skyBlue,
+$paleOrange,
+$kiwiGrenn,
+$lightGold,
+$grey);
+
+$photo :url('../assets/assets_Homework_Front-End_01/green-light-copy@3x.png');
+
+.Main{
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+@for $i from 1 through length($colors) {
+	.colorsList:nth-child(#{length($colors)}n+#{$i}) {
+		background-color: darken(nth($colors, $i),10%);
+	}
+}
+
+.Categories_Ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    @include tablet{
+        justify-content: center;
+        align-items: center;
+
+    }
+    .list{
+        @include list
+    };
+    .list:last-child{
+        
+        @include viewAll
+    };
+}
+.Jokes{
+    padding: 0 10px 0 10px;
+    margin-top: 10px;
+    border-top: 1px solid $silver;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .list{
+        align-self: center;
+        @include list;
+        @include viewAll;
+    };
+    .jokeCategoriess{
+       border: 2px solid green;
+       background-color: green;
+       color: $white;
+       width: fit-content;
+       padding: 0 5px 0 5px;
+       border-radius: 50px ;
+       
+    }
+    .jokes_list{
+        margin-top: 20px;
+        display: grid;
+         
+        grid-template-columns: repeat(3, 2fr);
+         
+        grid-auto-rows: auto;
+         
+        grid-gap: 1rem;
+        
+        @include tablet{
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+    .try{
+        padding: 10px;
+        /* border: 1px solid $grey; */
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-shadow: 0px 0px 15px -10px rgba(41, 41, 41, 0.75);
+        margin-bottom: 25px;
+        background-color: white;
+        .top_joke{
+            height: 85%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            
+        }
+        cursor: pointer;
+        
+        span {
+            color:$tan;
+            align-self:flex-end;
+            margin: 0 10px  10px 0;
+            font-family: "Montserrat-Medium";
+            font-size: .8em;
+            
+            
+        }
+        h3{img{
+            width: 10px;
+            margin-right: 5px;
+        }}
+        span{
+            img{
+                width: 15px;
+                margin-left: 15px;
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,241 @@
+@import 'colors';
+@import 'mediaqueries';
+$arrow:url('../assets//assets_Homework_Front-End_02/path.png');
+@mixin before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #fff;
+  transition: all .2s ease-out;
+}
+
+  * {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: "montserrat";
+  }
+  .navbar{
+    background-color:rgb(42, 42, 42) ;
+    display: flex;
+    height: 60px;
+   
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+
+
+    .navMenu{
+      
+        position: absolute;
+        right: 40px;
+        top:15px;
+        color: #fff;
+        opacity: 0;
+        font-size: 2em;
+        @include tablet{
+            
+            opacity :1;
+        }
+        
+    }
+    
+    .ulNavbar{
+        height: 60px;
+        margin-left: auto;
+        margin-right: 20px;
+        float: right;
+        display: flex;
+        
+        @include tablet {
+            display: none;
+        }
+        
+        @include mobile {
+            display: none;
+        }
+        li {
+            min-width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 0 1rem;
+            margin: 0 .5rem;
+            transition: background-color 0.3s ease;
+            &:hover{
+                background-color: $tan;
+            }
+            a {
+                color: #fff;
+                padding: 0 1rem;
+                font-family: "Montserrat";
+                font-size: 15px;
+            }
+        }
+        .activeLi{
+            
+            background-color: $tan;
+            border: 1px solid;
+            position: relative;
+            
+            .ul2{
+              position: relative;
+            }
+           /////
+           /// 
+           .navsubul{
+            visibility: hidden;
+            margin-top: 3px;
+            border-radius: 5px;
+            background-color: white;
+            position: absolute;
+            top: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            &::before{
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: -8%;
+                right: 10px;
+                z-index: 1;
+                background: transparent $arrow  no-repeat;
+                transform: rotate(180deg);
+            };
+            .lisub{
+                height: 50px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover{
+                    background-color: lighten($tan,20%);
+                }
+                a{  height: 100%;
+                    line-height: 20px;
+                    color: $black;
+                    font-family: 'Montserrat-Regular';
+                    font-size: 14px;
+                    border-bottom: 1px solid $tan ;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+            .lisub:last-child
+            {a{
+                border: none;
+                font-family: 'Montserrat-Bold';
+                color: $tan;
+            }}
+        } 
+        .navsubulshow{
+          visibility: visible;
+        }
+           ///// 
+        }
+    }
+    .showtab{
+      z-index: 6546;
+      height: calc(100vh - 60px);
+      position: absolute;
+      top: 60px;
+      width: 100vw;
+      background: rgb(42, 42, 42);
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      li {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0 1rem;
+        margin: 0 .5rem;
+        transition: background-color 0.3s ease;
+        &:hover{
+            background-color: $tan;
+        }
+        a {
+            color: #fff;
+            padding: 0 1rem;
+            font-family: "Montserrat";
+            font-size: 15px;
+        }
+    }
+    .activeLi{
+      .navsubul{
+        a{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    }
+    .sub{
+      position: absolute;
+      display: flex;
+        flex-direction: column;
+      height: auto;
+              top: 20%;
+    }
+    .menu-icon{
+      margin-left: auto;
+      margin-right: 20px;
+      display: none;
+      @include tablet{
+        display: block;
+      }
+      .navicon{
+        background: #fff;
+        display: block;
+        width: 2rem;
+        height: .2rem;
+        position: relative;
+        transition: background .2s ease-out ;
+        &::after{
+         @include before;
+         top: -0.7rem;
+        } 
+        &::before{
+          @include before;
+          top: 0.7rem;
+         } 
+
+      }
+    }
+    .menu-btn{
+      
+      display: none;
+    }
+    .menu-btn:checked ~ .menu-icon .navicon {
+      background: transparent;
+    
+      &::before {
+        transform: rotate(-45deg);
+      }
+    
+      &::after {
+        transform: rotate(45deg);
+      }
+    
+      &::before, &::after {
+        top: 0;
+      }
+    }
+
+
+  }
