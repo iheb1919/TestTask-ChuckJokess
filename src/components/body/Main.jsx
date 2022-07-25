@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import "../../styles/main.scss"
 import { Context,jokeslide } from '../../genaral/Context'
-import { useNavigate } from 'react-router-dom'
+//import { useNavigate } from 'react-router-dom'
 
 
 
 
 const Main = (props) => {
-    const navigate = useNavigate()
+    //const navigate = useNavigate()
   
     const msg = useContext(Context)
     const [pagination, setpagination] = useState(6)
@@ -62,7 +62,7 @@ const Main = (props) => {
                     {   
 
                         showedJokes.map((joke, key) => {
-                            return <div key={key} className="try" onClick={() => {setdatashared(joke);navigate(`/joke/${joke.id}`)}}>
+                            return <div key={key} className="try" onClick={() => {setdatashared(joke);/* navigate(`/joke/${joke.id}`) */}}>
                                 {/* <img src={joke.icon_url}/> */}
                                 <div className='top_joke'>
 

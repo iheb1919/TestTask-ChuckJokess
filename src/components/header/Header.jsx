@@ -2,12 +2,12 @@ import React, { useState,useContext, useEffect,useRef } from 'react'
 import Navbar from '../navbar/Navbar.jsx'
 import '../../styles/header.scss'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom'
+//import {useNavigate} from 'react-router-dom'
 
 
 function Header({ Categories,setdatashared }) {
   const [searchval, setSearchVal] = useState("")
-  const navigate = useNavigate()
+  //const navigate = useNavigate()
   //const {context,setContext}=useContext(Context)
   const [apiSearch,setApiSearch]=useState([])
   const [open,setopen]=useState(false)
@@ -52,7 +52,7 @@ function Header({ Categories,setdatashared }) {
               {
                  open ?
                 apiSearch.map((Categorie,key) => {
-                      return  <div key={key} className='div2'onClick={() => {  setdatashared(Categorie);navigate(`/joke/${Categorie.id}`) ;setopen(false)}}>
+                      return  <div key={key} className='div2'onClick={() => {  setdatashared(Categorie);/* navigate(`/joke/${Categorie.id}`) */ ;setopen(false)}}>
                         <img src={require(`../../assets/assets_Homework_Front-End_02/${light[Math.floor(Math.random() * light.length)]}`)}/>
                          <p> {Categorie.id}</p> 
                       </div>

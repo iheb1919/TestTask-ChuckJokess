@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext, Suspense } from "react";
 import Header from "./components/header/Header";
-import { Context,jokeslide } from "./genaral/Context";
+import { Context, jokeslide } from "./genaral/Context";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Main from "./components/body/Main";
 import "./styles/app.scss"
@@ -28,7 +28,7 @@ const App = () => {
         {
             "fashion": []
         },
-      
+
         {
             "food": []
         },
@@ -59,7 +59,7 @@ const App = () => {
         {
             "travel": []
         },
-        {"Uncategorized":[]}
+        { "Uncategorized": [] }
 
 
     ])
@@ -71,8 +71,8 @@ const App = () => {
     const [Categories, setCategories] = useState([]);
     const [context, setContext] = useState('test')
     const [datashared, setdatashared] = useState([])
-   
-    
+
+
     let Urls = [
         "https://api.chucknorris.io/jokes/search?query=all",
         "https://api.chucknorris.io/jokes/random",
@@ -91,24 +91,24 @@ const App = () => {
                 .then(([{ data: alldata }, { data: random }, { data: categories }]) => {
 
                     setallData(alldata.result)
-                    let ii =0 
+                    let ii = 0
                     alldata.result.map((data) => {
-                        for (let index = 0 ; index < tryz.length; index++) {
+                        for (let index = 0; index < tryz.length; index++) {
 
                             console.log(Object.keys(tryz[index])[0])
-                            
+
 
                             if (data.categories[0] === undefined) {
                                 tryz[16].Uncategorized.push(data)
                                 break
                             }
 
-                            if (data.categories[0] ===  Object.keys(tryz[index])[0]) {
+                            if (data.categories[0] === Object.keys(tryz[index])[0]) {
                                 tryz[index][`${Object.keys(tryz[index])[0]}`].push(data)
-                                
+
                                 break
                             }
-                           
+
                         }
 
 
@@ -128,21 +128,12 @@ const App = () => {
 
     return (
         <div className="app">
-                <Header Categories={Categories} setdatashared={setdatashared}/>
+            <Header Categories={Categories} setdatashared={setdatashared} />
             {AllData.length > 0 ?
                 <Context.Provider value={{ context, setContext }}>
-                    
-                        <Routes>
-                            {/* <Route element= {}/> */}
-                            <Route exact path="/" element={ <Main datashared={datashared} setdatashared={setdatashared} AllData={AllData} Random={Random} Categories={Categories} CategorizedData={CategorizedData}/>} />
-                            <Route path="/joke/:id" element={<Joke datashared={datashared} />} />
-
-                        </Routes>
-                    
-
-
-
-
+                    {/* <Route element= {}/> */}
+                    <Main datashared={datashared} setdatashared={setdatashared} AllData={AllData} Random={Random} Categories={Categories} CategorizedData={CategorizedData} />
+                    <Joke datashared={datashared} />
                     <Footer />
                 </Context.Provider>
 
